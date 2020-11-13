@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>JanKen</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+<h3>じゃんけんしよう！</h3>
+<div class="computer">
+    <h3>AI</h3>
+    <div class="hand">
+        {% if res.computer == 1 %}
+    <img  src="../static/images/janken_gu.png" alt="グー" width="100">
+        {% elif res.computer ==2 %}
+    <img  src="../static/images/janken_choki.png" alt="チョキ" width="100">
+        {% elif res.computer==3 %}
+    <img  src="../static/images/janken_pa.png" alt="パー" width="100">
+        {% else %}
+    <img  src="../static/images/heart.png" alt="はてな" width="100">
+    {% endif %}
+    </div>
+</div>
+
+<div class="user">
+    <h3>人間</h3>
+    <form method="get" action="/">
+    <div class="user_type {% if res.user == 1 %}use_type{% endif %}">
+        <div class="hand","image-resize"><img src="../static/images/janken_gu.png" alt="グー" width="100"></div>
+        <br>
+        <input type="submit" name="user" value="グー"></div>
+    <div class="user_type {% if res.user == 2 %}use_type{% endif %}">
+        <div class="hand","image-resize"><img src="../static/images/janken_choki.png" alt="チョキ" width="100"></div>
+        <br>
+        <input type="submit" name="user" value="チョキ"></div>
+    <div class="user_type {% if res.user == 3 %}use_type{% endif %}">
+        <div class="hand","image-resize"><img src="../static/images/janken_pa.png" alt="パー" width="100"></div>
+        <br>
+        <input type="submit" name="user" value="パー">
+    </div>
+    </form>
+</div>
+
+<div class="result_out">
+    <h3>結果</h3>
+    <div class="result">
+    {{ res.result }}
+    </div>
+</div>
+</body>
+</html>
